@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            text-align: center;
+        }
+        .auto-style3 {
+            color: #FF3399;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table class="auto-style1">
+            <tr>
+                <td style="width:10%">
+                    <asp:DataList ID="DataList1" runat="server" CellSpacing="20">
+                        <ItemTemplate>
+                            <strong><em>
+                            <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("maloai") %>' CssClass="auto-style3" OnClick="LinkButton1_Click" Text='<%# Eval("tenloai") %>'></asp:LinkButton>
+                            </em></strong>
+                        </ItemTemplate>
+                    </asp:DataList>
+                </td>
+                <td style="width:70%" class="auto-style2">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                </td>
+                <td style="width:20%">
+                    <asp:Login ID="Login1" runat="server" OnAuthenticate="Login1_Authenticate">
+                    </asp:Login>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
